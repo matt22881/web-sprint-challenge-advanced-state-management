@@ -10,9 +10,8 @@ export const CLEAR_ERROR = 'CLEAR_ERROR';
 
 
 export const getSmurfs = () => (dispatch) => {
-    dispatch({ type: CLEAR_ERROR });
-    dispatch({ type: START_FETCHING });
     //              - dispatch actions that indicate if we are waiting for a server response
+    dispatch({ type: START_FETCHING });
     axios.get('http://localhost:3333/smurfs')
       .then(res => {
         console.log('res: ', res)
@@ -20,7 +19,7 @@ export const getSmurfs = () => (dispatch) => {
       })
       //              - dispatch an error text action if an error is returned from the server
       .catch(err => {
-        console.error('error getting smurfs from api: ', err)
+        console.log('error getting smurfs from api: ', err)
         dispatch({ type: FETCHING_FAILED, payload: err.message })
     })
   }

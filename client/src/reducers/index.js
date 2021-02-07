@@ -5,13 +5,9 @@ import {    START_FETCHING, SMURFS_FETCHED, FETCHING_FAILED, CLEAR_ERROR, getSmu
 //      - an array of smurfs
 //      - a boolean indicating if the app is loading
 //      - error text
-// console.log(this)
-// debugger
 
-const smurfArr = getSmurfs()
-console.log('smurfArr: ', smurfArr)
 export const initialState = {
-    smurfs: smurfArr,
+    smurfs: getSmurfs(),
     isFetching: false,
     error: ''
 }
