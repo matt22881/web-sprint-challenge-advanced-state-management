@@ -1,4 +1,4 @@
-import {    START_FETCHING, SMURFS_FETCHED, FETCHING_FAILED, CLEAR_ERROR, getSmurfs } from './../actions'
+import {    START_FETCHING, SMURFS_FETCHED, FETCHING_FAILED, CLEAR_ERROR } from './../actions'
 
 //Task List:
 //1. Add in the initialState needed to hold: 
@@ -6,10 +6,12 @@ import {    START_FETCHING, SMURFS_FETCHED, FETCHING_FAILED, CLEAR_ERROR, getSmu
 //      - a boolean indicating if the app is loading
 //      - error text
 
+
 export const initialState = {
-    smurfs: getSmurfs(),
+    // smurfs: resp,
+    smurfs: [],
     isFetching: false,
-    error: ''
+    error: 'fake initial error'
 }
 
 //2. Setup your reducer to take the state and action as peremeters
@@ -19,7 +21,7 @@ const reducer = (state = initialState, action)=>{
         //      - The start of an api call
         case START_FETCHING: {
             return {
-                ...state, isFetching: true, error: ''
+                ...state, isFetching: true
             }
         }
         //      - The end of an api call

@@ -9,21 +9,26 @@ export const FETCHING_FAILED = 'FETCHING_FAILED'
 export const CLEAR_ERROR = 'CLEAR_ERROR';
 
 
-export const getSmurfs = () => (dispatch) => {
-    //              - dispatch actions that indicate if we are waiting for a server response
+export const getSmurfs = () => {
+  return (dispatch) => {
+    
+  //              - dispatch actions that indicate if we are waiting for a server response
+    dispatch({ type: CLEAR_ERROR });
     dispatch({ type: START_FETCHING });
+
     axios.get('http://localhost:3333/smurfs')
       .then(res => {
         console.log('res: ', res)
-        dispatch({ type: SMURFS_FETCHED, payload: res.data })
+        // debugger
+        dispatch({ type: SMURFS_FETCHED, payload: res })
       })
       //              - dispatch an error text action if an error is returned from the server
       .catch(err => {
         console.log('error getting smurfs from api: ', err)
         dispatch({ type: FETCHING_FAILED, payload: err.message })
     })
-  }
-
+}
+}
 //2. Add add smurf action:
 //              - dispatch an error text action if smurf data does not includes a name, nickname and position field
 //              - send a post request with the smurf as body to see if there is an error

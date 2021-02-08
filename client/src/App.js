@@ -14,8 +14,6 @@ class App extends Component {
           <a className="navbar-brand">Smurf Village Database</a>
         </nav>
         <main>
-        {/* //Task List:
-        //1. Add in SmurfDisplay and AddForm into your application. */}
           <AddForm />
           <SmurfDisplay />
         </main>
@@ -26,3 +24,6 @@ class App extends Component {
 
 
 export default App;
+
+//Task List:
+//1. Add in SmurfDisplay and AddForm into your application.
